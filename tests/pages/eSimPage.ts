@@ -49,7 +49,7 @@ export class ESimPage extends DefaultPage {
   async assertPackagePriceForDays(days: number) {
     const buttonText = await this.locators.unlimitedPackageForDays(days).textContent();
     // extract price from button text with regex
-    const price = buttonText?.match(/[\d,.]+ €/)?.[0];
+    const price = buttonText?.match(/\d+\.\d{2}/)?.[0];
     await expect(this.locators.packagePriceForDays(days)).toContainText(price!);
     await expect(this.locators.packagePriceBuyNow()).toContainText(price!);
   }
