@@ -9,7 +9,10 @@ export class HomePage extends DefaultPage {
     carousel: () => this.page.getByTestId("base-carousel_slide-container"),
     searchField: () => this.page.getByTestId("search-input_text-field"),
     searchResultsFlag: (locationName: string) =>
-      this.locators.headerSearchBar().locator(`a[href="/${locationName.toLowerCase()}-esim"]`),
+      this.locators
+        .headerSearchBar()
+        .locator(`a[href="/${locationName.toLowerCase()}-esim"]`)
+        .filter({ visible: true }),
   };
 
   constructor(page: Page) {
