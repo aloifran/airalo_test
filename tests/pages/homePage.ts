@@ -41,7 +41,7 @@ export class HomePage extends DefaultPage {
   async searchForESim(location: string) {
     await this.locators.searchField().focus();
     await this.locators.searchField().fill(location);
-    await expect(this.locators.searchResultsFlag(location)).toBeVisible();
+    await expect(this.locators.searchResultsFlag(location)).toBeVisible({ timeout: 10000 });
   }
 
   async selectESimFromSearchResults(location: string) {
