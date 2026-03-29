@@ -4,9 +4,8 @@ import { defineConfig, devices } from "@playwright/test";
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
  */
-// import dotenv from 'dotenv';
-// import path from 'path';
-// dotenv.config({ path: path.resolve(__dirname, '.env') });
+import dotenv from "dotenv";
+dotenv.config({ path: new URL(".env", import.meta.url).pathname });
 
 /**
  * See https://playwright.dev/docs/test-configuration.
@@ -53,7 +52,7 @@ export default defineConfig({
     },
     {
       name: "api",
-      use: { baseURL: "https://partners-api.airalo.com/v2" },
+      use: { baseURL: "https://partners-api.airalo.com/v2/" },
       testMatch: "tests/specs/api/**/*.spec.ts",
     },
 

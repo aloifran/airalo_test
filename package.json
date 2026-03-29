@@ -10,9 +10,10 @@
   "scripts": {
     "test": "npx playwright test",
     "test:ui": "npx playwright test --project=ui-*",
-    "test:api": "npx playwright test --project=api"
+    "test:api": "DEBUG=pw:api npx playwright test --project=api"
   },
   "dependencies": {
+    "dotenv": "^17.3.1",
     "typescript": "^6.0.2"
   },
   "devDependencies": {
